@@ -5,40 +5,65 @@
   box-sizing: border-box;
 }
 
+:root {
+  --ink: #fff8e8;
+  --shadow-soft: 0 16px 45px rgba(77, 49, 31, 0.18);
+  --panel: rgba(255, 255, 255, 0.22);
+  --panel-strong: rgba(255, 255, 255, 0.42);
+  --panel-border: rgba(255, 255, 255, 0.58);
+  --accent-yellow: #ffe66d;
+  --accent-coral: #ff8a65;
+  --accent-blue: #4cc9f0;
+  --accent-green: #8bdc65;
+}
+
 html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: "幼圆", "微软雅黑", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "HYLeMiaoTi", "幼圆", "PingFang SC", "Microsoft YaHei", sans-serif;
   -webkit-font-smoothing: antialiased;
   user-select: none;
   cursor: none;
+  background: #72c7f8;
 }
 
 /* ========== 各段落配色 ========== */
 /* 开场：蓝紫 */
 .slide[data-section="opening"] {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 255, 255, 0.34) 0 4.5%, transparent 5.5%),
+    radial-gradient(circle at 82% 20%, rgba(255, 230, 109, 0.36) 0 6%, transparent 7%),
+    linear-gradient(135deg, #72c7f8 0%, #8f9bff 58%, #b38add 100%);
 }
 
 /* 神奇：橙色暖调 */
 .slide[data-section="amazing"] {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #ff9a76 100%);
+  background:
+    radial-gradient(circle at 78% 15%, rgba(255, 242, 160, 0.38) 0 5.5%, transparent 6.5%),
+    radial-gradient(circle at 18% 80%, rgba(255, 255, 255, 0.28) 0 4.5%, transparent 5.5%),
+    linear-gradient(135deg, #ffcf7a 0%, #ff9f7a 52%, #f58ab8 100%);
 }
 
 /* 什么是AI：蓝色 */
 .slide[data-section="whatis"] {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background:
+    radial-gradient(circle at 18% 25%, rgba(255, 255, 255, 0.28) 0 5%, transparent 6%),
+    linear-gradient(135deg, #58c8ff 0%, #4fd9df 100%);
 }
 
 /* 犯错：红色 */
 .slide[data-section="mistakes"] {
-  background: linear-gradient(135deg, #f5576c 0%, #ff6a00 100%);
+  background:
+    radial-gradient(circle at 78% 22%, rgba(255, 236, 179, 0.34) 0 6%, transparent 7%),
+    linear-gradient(135deg, #ff8f70 0%, #ff6f61 48%, #ffb067 100%);
 }
 
 /* 升华：绿色 */
 .slide[data-section="elevation"] {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  background:
+    radial-gradient(circle at 82% 78%, rgba(255, 255, 255, 0.28) 0 5%, transparent 6%),
+    linear-gradient(135deg, #8bdc65 0%, #58d9b7 100%);
 }
 
 /* ========== 幻灯片基础 ========== */
@@ -54,8 +79,8 @@ html, body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
-  color: white;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  color: var(--ink);
+  text-shadow: 0 4px 14px rgba(73, 54, 35, 0.22);
 }
 
 .slide.active {
@@ -75,7 +100,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2.4vh, 1.6rem);
 }
 
 /* ========== 排版 ========== */
@@ -83,7 +108,7 @@ h1 {
   font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
   line-height: 1.2;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
 }
 
 h2 {
@@ -94,13 +119,13 @@ h2 {
 
 .body-text {
   font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-  font-weight: 500;
-  line-height: 1.6;
+  font-weight: 800;
+  line-height: 1.45;
 }
 
 .body-text.highlight {
   font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 900;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
@@ -111,12 +136,15 @@ h2 {
 
 .interaction-hint {
   font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  padding: 0.8rem 2rem;
-  border-radius: 2rem;
+  font-weight: 800;
+  color: #5b3f2f;
+  background: rgba(255, 248, 226, 0.82);
+  border: 4px solid rgba(255, 255, 255, 0.74);
+  box-shadow: var(--shadow-soft);
+  padding: 0.85rem 2.1rem;
+  border-radius: 999px;
   margin-top: 1rem;
+  text-shadow: none;
 }
 
 .tool-label {
@@ -129,9 +157,11 @@ h2 {
 .hero-image {
   max-width: 70vw;
   max-height: 55vh;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border-radius: 2rem;
+  border: 8px solid rgba(255, 255, 255, 0.86);
+  box-shadow: var(--shadow-soft);
   object-fit: contain;
+  background: rgba(255, 255, 255, 0.24);
 }
 
 .image-grid {
@@ -144,9 +174,11 @@ h2 {
 .grid-image {
   width: clamp(150px, 25vw, 280px);
   height: clamp(150px, 25vw, 280px);
-  border-radius: 1rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 1.6rem;
+  border: 7px solid rgba(255, 255, 255, 0.86);
+  box-shadow: var(--shadow-soft);
   object-fit: cover;
+  background: rgba(255, 255, 255, 0.24);
 }
 
 .image-showcase {
@@ -159,12 +191,18 @@ h2 {
 .video-showcase {
   width: 85%;
   max-width: 900px;
+  padding: clamp(0.45rem, 1vw, 0.8rem);
+  border-radius: 2.2rem;
+  background: var(--panel);
+  border: 5px solid var(--panel-border);
+  box-shadow: var(--shadow-soft);
 }
 
 .video-showcase video {
   width: 100%;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: block;
+  border-radius: 1.55rem;
+  box-shadow: none;
 }
 
 /* ========== 对话气泡 ========== */
@@ -182,18 +220,20 @@ h2 {
   font-size: clamp(1.2rem, 2.5vw, 1.8rem);
   font-weight: 600;
   max-width: 80%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-soft);
+  text-shadow: none;
+  color: #4d3729;
 }
 
 .user-bubble {
   align-self: flex-end;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 248, 226, 0.92);
   border-bottom-right-radius: 0.3rem;
 }
 
 .ai-bubble {
   align-self: flex-start;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(223, 248, 255, 0.94);
   border-bottom-left-radius: 0.3rem;
 }
 
@@ -207,12 +247,14 @@ h2 {
 }
 
 .compare-item {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 2rem;
   padding: 2rem 2.5rem;
   text-align: center;
   min-width: 200px;
+  box-shadow: var(--shadow-soft);
+  text-shadow: none;
+  color: #fffdf4;
 }
 
 .compare-visual {
@@ -227,8 +269,9 @@ h2 {
 
 .compare-desc {
   font-size: clamp(1rem, 2vw, 1.5rem);
-  opacity: 0.8;
+  opacity: 1;
   margin-top: 0.3rem;
+  font-weight: 700;
 }
 
 .compare-vs {
@@ -243,10 +286,10 @@ h2 {
   bottom: 0;
   left: 0;
   height: 4px;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--accent-yellow);
   z-index: 100;
   transition: width 0.4s ease;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(255, 230, 109, 0.72);
 }
 
 /* ========== 演讲者备注 ========== */
@@ -319,8 +362,11 @@ body:hover #nav-buttons {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background:
+    radial-gradient(circle at 25% 18%, rgba(255, 255, 255, 0.36) 0 5%, transparent 6%),
+    radial-gradient(circle at 78% 72%, rgba(255, 230, 109, 0.36) 0 7%, transparent 8%),
+    linear-gradient(135deg, #72c7f8 0%, #8f9bff 58%, #b38add 100%);
+  color: var(--ink);
   z-index: 500;
   display: flex;
   flex-direction: column;
@@ -338,13 +384,21 @@ body:hover #nav-buttons {
 
 #fullscreen-hint p {
   font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 700;
+  font-weight: 900;
+  text-shadow: 0 4px 14px rgba(73, 54, 35, 0.24);
 }
 
 #fullscreen-hint .small {
   font-size: clamp(0.8rem, 1.5vw, 1.2rem);
-  opacity: 0.6;
-  font-weight: 400;
+  opacity: 0.78;
+  font-weight: 700;
+}
+
+.start-robot {
+  font-size: clamp(5rem, 13vw, 10rem);
+  line-height: 1;
+  filter: drop-shadow(0 16px 28px rgba(73, 54, 35, 0.22));
+  animation: icon-bob 3s ease-in-out infinite;
 }
 
 /* ========== 动画 ========== */
@@ -441,21 +495,21 @@ body:hover #nav-buttons {
 
 /* 大光晕（右上） */
 .slide::before {
-  width: 35vw;
-  height: 35vw;
-  right: -8vw;
-  top: -8vw;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  width: 22vw;
+  height: 22vw;
+  right: -5vw;
+  top: -5vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, transparent 70%);
   animation: float-slow 12s ease-in-out infinite;
 }
 
 /* 小光晕（左下） */
 .slide::after {
-  width: 22vw;
-  height: 22vw;
-  left: -6vw;
-  bottom: -6vw;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
+  width: 15vw;
+  height: 15vw;
+  left: -4vw;
+  bottom: -4vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
   animation: float-slow 9s ease-in-out infinite reverse;
 }
 
@@ -481,16 +535,16 @@ body:hover #nav-buttons {
 .bubble {
   position: absolute;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.34), inset 0 0 10px rgba(255, 255, 255, 0.22);
   animation: bubble-float linear infinite;
   opacity: 0;
 }
 
 @keyframes bubble-float {
   0% { transform: translateY(110vh) scale(0.5); opacity: 0; }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.6; }
+  10% { opacity: 0.42; }
+  90% { opacity: 0.42; }
   100% { transform: translateY(-10vh) scale(1); opacity: 0; }
 }
 
@@ -517,6 +571,8 @@ body:hover #nav-buttons {
 .illustration-large {
   width: clamp(280px, 45vw, 520px);
   height: clamp(280px, 45vw, 520px);
+  border-radius: 2rem;
+  box-shadow: var(--shadow-soft);
 }
 
 /* 让 emoji 类的图标有更多层次 */
@@ -533,7 +589,7 @@ body:hover #nav-buttons {
 /* 对比卡片加强 */
 .compare-item {
   transition: transform 0.3s ease;
-  border: 3px solid rgba(255, 255, 255, 0.4);
+  border: 5px solid var(--panel-border);
 }
 
 .slide.active .compare-item:hover {
@@ -566,8 +622,17 @@ body:hover #nav-buttons {
 /* 响应式 */
 /* ========== 响应式 ========== */
 @media (max-width: 768px) {
+  h1 {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+
+  .slide-content {
+    width: 92%;
+  }
+
   .compare-container {
     flex-direction: column;
+    gap: 1rem;
   }
   
   .compare-vs {
@@ -578,8 +643,21 @@ body:hover #nav-buttons {
     flex-direction: column;
     align-items: center;
   }
+
+  .hero-image {
+    max-width: 86vw;
+    max-height: 48vh;
+  }
   
   .chat-bubble {
     max-width: 90%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
