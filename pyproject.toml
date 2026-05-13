@@ -1,7 +1,7 @@
 [project]
 name = "shear-kinder"
 version = "0.1.0"
-description = "Add your description here"
+description = "幼儿园AI科普互动幻灯片"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
