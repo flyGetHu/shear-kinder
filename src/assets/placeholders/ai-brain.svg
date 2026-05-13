@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="aiBody" cx="50%" cy="40%">
+      <stop offset="0%" stop-color="#80deea"/>
+      <stop offset="100%" stop-color="#00bcd4"/>
+    </radialGradient>
+    <radialGradient id="aiEye">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="60%" stop-color="#4dd0e1"/>
+      <stop offset="100%" stop-color="#006064"/>
+    </radialGradient>
+    <filter id="aiGlow">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- 光环 -->
+  <circle cx="200" cy="200" r="180" fill="none" stroke="#00e5ff" stroke-width="2" opacity="0.4" stroke-dasharray="4,6"/>
+  <circle cx="200" cy="200" r="160" fill="none" stroke="#00e5ff" stroke-width="1.5" opacity="0.3" stroke-dasharray="2,4"/>
+  <!-- 天线 -->
+  <line x1="200" y1="60" x2="200" y2="110" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="200" cy="55" r="12" fill="#ffeb3b" filter="url(#aiGlow)"/>
+  <!-- 头（圆润） -->
+  <ellipse cx="200" cy="180" rx="100" ry="90" fill="url(#aiBody)" stroke="#fff" stroke-width="4"/>
+  <!-- 大眼睛（有神） -->
+  <ellipse cx="170" cy="180" rx="22" ry="26" fill="#1a237e"/>
+  <ellipse cx="230" cy="180" rx="22" ry="26" fill="#1a237e"/>
+  <circle cx="170" cy="180" r="18" fill="url(#aiEye)"/>
+  <circle cx="230" cy="180" r="18" fill="url(#aiEye)"/>
+  <circle cx="176" cy="173" r="5" fill="#fff"/>
+  <circle cx="236" cy="173" r="5" fill="#fff"/>
+  <!-- 微笑 -->
+  <path d="M 170 225 Q 200 250 230 225" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <!-- 脑电波（头上方） -->
+  <g stroke="#fff" stroke-width="3" fill="none" opacity="0.8">
+    <path d="M 130 100 Q 140 90 150 100 Q 160 110 170 100" stroke-linecap="round"/>
+    <path d="M 230 100 Q 240 90 250 100 Q 260 110 270 100" stroke-linecap="round"/>
+  </g>
+  <!-- 身体（带思考电路） -->
+  <rect x="135" y="265" width="130" height="90" rx="20" fill="url(#aiBody)" stroke="#fff" stroke-width="4"/>
+  <!-- 大脑图标胸前 -->
+  <path d="M 180 290 Q 165 285 165 305 Q 165 320 180 320 Q 185 325 200 325 Q 215 325 220 320 Q 235 320 235 305 Q 235 285 220 290 Q 215 285 200 285 Q 185 285 180 290 Z" fill="#ff4081" filter="url(#aiGlow)"/>
+  <!-- 闪电符号在脑上 -->
+  <path d="M 198 295 L 196 310 L 205 310 L 201 320" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- 发光粒子（围绕） -->
+  <g fill="#ffeb3b" filter="url(#aiGlow)">
+    <circle cx="70" cy="140" r="4"/>
+    <circle cx="340" cy="160" r="5"/>
+    <circle cx="60" cy="280" r="4"/>
+    <circle cx="350" cy="290" r="4"/>
+    <circle cx="100" cy="50" r="3"/>
+  </g>
+</svg>

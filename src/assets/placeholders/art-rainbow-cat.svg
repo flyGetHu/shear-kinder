@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="rbCat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff4d6d"/>
+      <stop offset="25%" stop-color="#ffb703"/>
+      <stop offset="50%" stop-color="#8ac926"/>
+      <stop offset="75%" stop-color="#1982c4"/>
+      <stop offset="100%" stop-color="#6a4c93"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" fill="#fff3e0" rx="20"/>
+  <!-- 彩虹 -->
+  <g opacity="0.35">
+    <path d="M 0 280 Q 150 100 300 280" stroke="#ff4d6d" stroke-width="12" fill="none"/>
+    <path d="M 0 280 Q 150 120 300 280" stroke="#ffb703" stroke-width="12" fill="none"/>
+    <path d="M 0 280 Q 150 140 300 280" stroke="#8ac926" stroke-width="12" fill="none"/>
+    <path d="M 0 280 Q 150 160 300 280" stroke="#1982c4" stroke-width="12" fill="none"/>
+  </g>
+  <!-- 猫身体 -->
+  <ellipse cx="150" cy="200" rx="70" ry="55" fill="url(#rbCat)"/>
+  <!-- 猫头 -->
+  <circle cx="150" cy="130" r="55" fill="url(#rbCat)"/>
+  <!-- 耳朵 -->
+  <path d="M 110 95 L 95 55 L 130 80 Z" fill="#ff4d6d"/>
+  <path d="M 190 95 L 205 55 L 170 80 Z" fill="#6a4c93"/>
+  <!-- 眼睛 -->
+  <circle cx="132" cy="130" r="8" fill="#fff"/>
+  <circle cx="168" cy="130" r="8" fill="#fff"/>
+  <circle cx="132" cy="132" r="5" fill="#000"/>
+  <circle cx="168" cy="132" r="5" fill="#000"/>
+  <!-- 嘴 -->
+  <path d="M 145 148 Q 150 155 155 148" stroke="#000" stroke-width="2" fill="none"/>
+  <!-- 尾巴 -->
+  <path d="M 215 210 Q 260 170 250 130" stroke="url(#rbCat)" stroke-width="16" fill="none" stroke-linecap="round"/>
+</svg>

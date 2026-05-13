@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI魔法课</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <!-- 进度条 -->
+  <div id="progress-bar"></div>
+
+  <!-- 全局浮动气泡装饰层 -->
+  <div class="bubbles" aria-hidden="true">
+    <div class="bubble" style="width:40px;height:40px;left:8%;animation-duration:18s;animation-delay:0s;"></div>
+    <div class="bubble" style="width:60px;height:60px;left:22%;animation-duration:22s;animation-delay:3s;"></div>
+    <div class="bubble" style="width:28px;height:28px;left:38%;animation-duration:15s;animation-delay:6s;"></div>
+    <div class="bubble" style="width:50px;height:50px;left:55%;animation-duration:20s;animation-delay:1s;"></div>
+    <div class="bubble" style="width:35px;height:35px;left:72%;animation-duration:17s;animation-delay:4s;"></div>
+    <div class="bubble" style="width:70px;height:70px;left:88%;animation-duration:25s;animation-delay:8s;"></div>
+    <div class="bubble" style="width:22px;height:22px;left:15%;animation-duration:13s;animation-delay:10s;"></div>
+    <div class="bubble" style="width:45px;height:45px;left:65%;animation-duration:19s;animation-delay:12s;"></div>
+  </div>
+
+  <!-- 幻灯片容器 -->
+  <div id="slides-container">
+
+    <!-- ========== 第一段：开场（蓝紫色系） ========== -->
+
+    <!-- 第1页：封面 -->
+    <section class="slide" data-section="opening" data-notes="大家好！今天我要带你们认识一个特别厉害的朋友，它叫AI！">
+      <div class="slide-content center">
+        <h1 class="title-bounce">AI魔法课 ✨</h1>
+        <div class="subtitle-area">
+          <img src="assets/images/ai-robot-cover.png" alt="AI机器人"
+               class="illustration-large pop-in"
+               onerror="this.onerror=null;this.src='assets/placeholders/cover-robot.svg'">
+        </div>
+      </div>
+    </section>
+
+    <!-- 第2页：自我介绍 -->
+    <section class="slide" data-section="opening" data-notes="我是___的爸爸。我的工作是程序员，就是让电脑变聪明的人。谁家里有电脑或者手机呀？举举手！">
+      <div class="slide-content center">
+        <div class="big-emoji">👨‍💻</div>
+        <h1 class="slide-in-left">让电脑变聪明的人</h1>
+        <p class="interaction-hint">🙋 谁家里有电脑或手机？</p>
+      </div>
+    </section>
+
+    <!-- ========== 第二段：AI很神奇（橙色系） ========== -->
+
+    <!-- 第3页：AI会画画① -->
+    <section class="slide" data-section="amazing" data-notes="AI会画画！你们看，这是一只穿着宇航服的小猫！它在干什么呀？是不是在太空中？">
+      <div class="slide-content center">
+        <h1 class="slide-in-left">AI会画画</h1>
+        <div class="image-showcase">
+          <img src="assets/images/ai-art-cat-astronaut.png" alt="穿宇航服的小猫"
+               class="hero-image pop-in"
+               onerror="this.onerror=null;this.src='assets/placeholders/cat-astronaut.svg'">
+        </div>
+        <p class="interaction-hint">👀 这是什么动物？它在干什么？</p>
+      </div>
+    </section>
+
+    <!-- 第4页：AI会画画② -->
+    <section class="slide" data-section="amazing" data-notes="AI还能画更多！你们看这些画，都是AI画的！谁能告诉我画里有什么？">
+      <div class="slide-content center">
+        <h1 class="slide-in-left">AI还能画更多</h1>
+        <div class="image-grid">
+          <img src="assets/images/ai-art-1.png" alt="彩虹猫" class="grid-image pop-in"
+               onerror="this.onerror=null;this.src='assets/placeholders/art-rainbow-cat.svg'">
+          <img src="assets/images/ai-art-2.png" alt="恐龙乐园" class="grid-image pop-in delay-1"
+               onerror="this.onerror=null;this.src='assets/placeholders/art-dino.svg'">
+          <img src="assets/images/ai-art-3.png" alt="云端城堡" class="grid-image pop-in delay-2"
+               onerror="this.onerror=null;this.src='assets/placeholders/art-castle.svg'">
+        </div>
+        <p class="interaction-hint">📢 画里有什么？大声告诉我！</p>
+      </div>
+    </section>
+
+    <!-- 第5页：AI会做视频 -->
+    <section class="slide" data-section="amazing" data-notes="AI不止会画画，还会做视频！你们看，小车玩具变成了真正在跑的汽车！">
+      <div class="slide-content center">
+        <h1 class="slide-in-left">AI会做视频</h1>
+        <div class="video-showcase">
+          <video id="video-toy-car" muted playsinline preload="auto"
+                 poster="assets/placeholders/video-toy-car.svg">
+            <source src="assets/videos/toy-to-real.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第6页：AI会说话 -->
+    <section class="slide" data-section="amazing" data-notes="AI还会说话！你们听过豆包吗？我跟豆包说：讲一个大灰狼的故事，它就讲了一个故事！">
+      <div class="slide-content center">
+        <h1 class="slide-in-left">AI会说话</h1>
+        <div class="chat-bubble-container">
+          <div class="chat-bubble user-bubble pop-in">讲一个大灰狼的故事</div>
+          <div class="chat-bubble ai-bubble pop-in delay-1">从前，在一片大森林里，住着一只大灰狼...🤖</div>
+        </div>
+        <p class="tool-label">💬 豆包</p>
+      </div>
+    </section>
+
+    <!-- ========== 第三段：什么是AI（蓝色系） ========== -->
+
+    <!-- 第7页：旧机器人 vs AI -->
+    <section class="slide" data-section="whatis" data-notes="以前也有机器人，但是以前的机器人笨笨的，只会做一件事。现在的AI不一样，它会学习、会思考！你们觉得哪个更聪明？">
+      <div class="slide-content center">
+        <h1 class="slide-in-left">哪个更聪明？</h1>
+        <div class="compare-container">
+          <div class="compare-item pop-in">
+            <img src="assets/placeholders/old-robot.svg" alt="旧机器人"
+                 style="width:clamp(120px,18vw,200px);height:auto;"/>
+            <p class="compare-label">旧机器人</p>
+            <p class="compare-desc">只会做一件事</p>
+          </div>
+          <div class="compare-vs">VS</div>
+          <div class="compare-item pop-in delay-1">
+            <img src="assets/placeholders/ai-brain.svg" alt="AI机器人"
+                 style="width:clamp(120px,18vw,200px);height:auto;"/>
+            <p class="compare-label">AI机器人</p>
+            <p class="compare-desc">会学习会思考</p>
+          </div>
+        </div>
+        <p class="interaction-hint">👆 哪个更聪明？指一指！</p>
+      </div>
+    </section>
+
+    <!-- 第8页：AI像什么 -->
+    <section class="slide" data-section="whatis" data-notes="AI就像一个特别特别用功的小朋友，它看了好多好多书，所以什么都知道一点点。但它不是什么都知道的哦！">
+      <div class="slide-content center">
+        <div class="big-emoji">📚</div>
+        <h1 class="slide-in-left">AI像一个特别用功的小朋友</h1>
+        <p class="body-text pop-in delay-1">看了好多好多书<br>什么都知道一点点</p>
+      </div>
+    </section>
+
+    <!-- ========== 第四段：AI会犯错（红色系） ========== -->
+
+    <!-- 第9页：转折页 -->
+    <section class="slide" data-section="mistakes" data-notes="但是！AI有时候会闹笑话！你们想不想看AI闹了什么笑话？">
+      <div class="slide-content center">
+        <h1 class="title-shake">但是！</h1>
+        <h2 class="slide-in-left delay-1">AI有时候会闹笑话 😂</h2>
+      </div>
+    </section>
+
+    <!-- 第10页：画错的手 -->
+    <section class="slide" data-section="mistakes" data-notes="AI画了一只手，但是你们数数看，这只手有几根手指？对！六根！我们的手只有五根手指，AI画错了！">
+      <div class="slide-content center">
+        <h1 class="slide-in-left">数数有几根手指？</h1>
+        <div class="image-showcase">
+          <img src="assets/images/ai-wrong-hand.png" alt="AI画错的手"
+               class="hero-image pop-in"
+               onerror="this.onerror=null;this.src='assets/placeholders/wrong-hand.svg'">
+        </div>
+        <p class="interaction-hint">✋ 数一数，对不对？</p>
+      </div>
+    </section>
+
+    <!-- 第11页：画错的动物 -->
+    <section class="slide" data-section="mistakes" data-notes="AI还画了一只小狗，但是你们看看，这只小狗哪里不对？对！它多了一条腿！小狗只有四条腿，AI画了五条！">
+      <div class="slide-content center">
+        <h1 class="slide-in-left">这只小狗哪里不对？</h1>
+        <div class="image-showcase">
+          <img src="assets/images/ai-wrong-dog.png" alt="AI画错的小狗"
+               class="hero-image pop-in"
+               onerror="this.onerror=null;this.src='assets/placeholders/wrong-dog.svg'">
+        </div>
+        <p class="interaction-hint">🔍 找找看，哪里不对？</p>
+      </div>
+    </section>
+
+    <!-- 第12页：理解错的视频 -->
+    <section class="slide" data-section="mistakes" data-notes="最搞笑的来了！我让AI做一个视频：让火车站旁边的汽车去赛车。结果AI把整个火车站变成了一辆车去赛车！太好笑了！">
+      <div class="slide-content center">
+        <h1 class="slide-in-left">AI听错了！😂</h1>
+        <div class="video-showcase">
+          <video id="video-ai-mistake" muted playsinline preload="auto"
+                 poster="assets/placeholders/video-ai-mistake.svg">
+            <source src="assets/videos/ai-misunderstand.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- 第13页：手工变活 -->
+    <section class="slide" data-section="mistakes" data-notes="最后看一个特别的！这是小朋友做的手工，AI把它变成了会动的视频！看！它活了！这是谁做的？">
+      <div class="slide-content center">
+        <h1 class="slide-in-left">手工变活了！✨</h1>
+        <div class="video-showcase">
+          <video id="video-craft-alive" muted playsinline preload="auto"
+                 poster="assets/placeholders/video-craft-alive.svg">
+            <source src="assets/videos/craft-comes-alive.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="interaction-hint">🙌 这是谁做的？它动了！</p>
+      </div>
+    </section>
+
+    <!-- ========== 第五段：升华（绿色系） ========== -->
+
+    <!-- 第14页：提问 -->
+    <section class="slide" data-section="elevation" data-notes="AI这么厉害，会画画、会做视频、会说话。那我们还要不要学习呀？">
+      <div class="slide-content center">
+        <h1 class="slide-in-left">AI这么厉害</h1>
+        <h2 class="title-bounce delay-1">我们还要不要学习？</h2>
+      </div>
+    </section>
+
+    <!-- 第15页：回答 -->
+    <section class="slide" data-section="elevation" data-notes="当然要学习！因为AI会犯错呀！你们刚才看到了，AI画了6根手指、5条腿的小狗。如果我们不会数数，就看不出AI画错了！">
+      <div class="slide-content center">
+        <div class="big-emoji">📖</div>
+        <h1 class="slide-in-left">要学习！</h1>
+        <p class="body-text pop-in delay-1">因为AI会犯错<br>只有学习了，才知道它做得对不对</p>
+      </div>
+    </section>
+
+    <!-- 第16页：总结 -->
+    <section class="slide" data-section="elevation" data-notes="AI是我们的好帮手，就像画笔一样。画笔很厉害，但是画画的人，还是我们！小朋友们学得越多，就能把AI用得越好！">
+      <div class="slide-content center">
+        <div class="big-emoji">🎨</div>
+        <h1 class="slide-in-left">AI是好帮手</h1>
+        <p class="body-text pop-in delay-1">像画笔一样厉害</p>
+        <p class="body-text highlight pop-in delay-2">但画画的人，还是我们！</p>
+      </div>
+    </section>
+
+    <!-- 第17页：结束页 -->
+    <section class="slide" data-section="elevation" data-notes="谢谢大家！小朋友们再见！">
+      <div class="slide-content center">
+        <h1 class="title-bounce">谢谢大家！</h1>
+        <div class="big-emoji wave-animation">👋</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- 演讲者备注（鼠标悬停底部显示） -->
+  <div id="speaker-notes"></div>
+
+  <!-- 底部导航按钮（隐藏，紧急时使用） -->
+  <div id="nav-buttons">
+    <button id="btn-prev" title="上一页">◀</button>
+    <button id="btn-next" title="下一页">▶</button>
+  </div>
+
+  <!-- 全屏提示 -->
+  <div id="fullscreen-hint" class="center">
+    <p>点击屏幕或按任意键开始</p>
+    <p class="small">建议按 F11 进入全屏模式</p>
+  </div>
+
+  <script src="scripts/slides.js"></script>
+</body>
+</html>

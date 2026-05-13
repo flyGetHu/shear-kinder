@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="dogBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d7a86e"/>
+      <stop offset="100%" stop-color="#a6794a"/>
+    </linearGradient>
+    <filter id="arrowGlow">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+  <rect width="500" height="500" fill="#fef5e7" rx="20"/>
+  <!-- 草地 -->
+  <ellipse cx="250" cy="430" rx="230" ry="25" fill="#aed581" opacity="0.7"/>
+  <!-- 身体 -->
+  <ellipse cx="250" cy="280" rx="140" ry="75" fill="url(#dogBody)" stroke="#795548" stroke-width="4"/>
+  <!-- 头 -->
+  <ellipse cx="370" cy="230" rx="75" ry="65" fill="url(#dogBody)" stroke="#795548" stroke-width="4"/>
+  <!-- 耳朵 -->
+  <path d="M 330 180 Q 310 130 345 150 Q 360 170 355 195 Z" fill="#8d5524" stroke="#5d4037" stroke-width="3"/>
+  <!-- 嘴 -->
+  <ellipse cx="415" cy="250" rx="25" ry="18" fill="#f4a56e"/>
+  <circle cx="425" cy="240" r="5" fill="#333"/>
+  <!-- 眼睛 -->
+  <circle cx="375" cy="215" r="7" fill="#fff"/>
+  <circle cx="377" cy="217" r="4" fill="#000"/>
+  <!-- 尾巴 -->
+  <path d="M 112 260 Q 70 230 80 200" stroke="url(#dogBody)" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <!-- 5条腿！（正常是4条，故意画5条） -->
+  <rect x="155" y="335" width="28" height="85" rx="14" fill="url(#dogBody)" stroke="#795548" stroke-width="3"/>
+  <rect x="210" y="340" width="28" height="85" rx="14" fill="url(#dogBody)" stroke="#795548" stroke-width="3"/>
+  <rect x="265" y="340" width="28" height="85" rx="14" fill="url(#dogBody)" stroke="#795548" stroke-width="3"/>
+  <rect x="320" y="335" width="28" height="85" rx="14" fill="url(#dogBody)" stroke="#795548" stroke-width="3"/>
+  <!-- 第五条腿（多余的）-->
+  <rect x="238" y="345" width="26" height="80" rx="13" fill="url(#dogBody)" stroke="#795548" stroke-width="3"/>
+  <!-- 红色圈高亮多的腿 -->
+  <ellipse cx="251" cy="385" rx="22" ry="45" fill="none" stroke="#f44336" stroke-width="5" stroke-dasharray="8,4"/>
+  <!-- 箭头 -->
+  <g stroke="#f44336" stroke-width="5" fill="none" stroke-linecap="round" filter="url(#arrowGlow)">
+    <line x1="250" y1="460" x2="250" y2="440"/>
+    <polygon points="250,440 242,450 258,450" fill="#f44336"/>
+  </g>
+  <!-- 提示数字 -->
+  <g fill="#f44336" font-weight="900" font-size="36">
+    <text x="158" y="460">1</text>
+    <text x="213" y="460">2</text>
+    <text x="240" y="490">?</text>
+    <text x="268" y="460">3</text>
+    <text x="323" y="460">4</text>
+  </g>
+  <!-- 问号气泡 -->
+  <circle cx="80" cy="130" r="38" fill="#fff" stroke="#f44336" stroke-width="4"/>
+  <text x="80" y="148" font-size="50" text-anchor="middle" fill="#f44336" font-weight="900">?</text>
+</svg>

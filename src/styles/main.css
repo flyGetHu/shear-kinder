@@ -1,0 +1,585 @@
+/* ========== 全局重置与基础 ========== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "幼圆", "微软雅黑", "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  cursor: none;
+}
+
+/* ========== 各段落配色 ========== */
+/* 开场：蓝紫 */
+.slide[data-section="opening"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* 神奇：橙色暖调 */
+.slide[data-section="amazing"] {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #ff9a76 100%);
+}
+
+/* 什么是AI：蓝色 */
+.slide[data-section="whatis"] {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* 犯错：红色 */
+.slide[data-section="mistakes"] {
+  background: linear-gradient(135deg, #f5576c 0%, #ff6a00 100%);
+}
+
+/* 升华：绿色 */
+.slide[data-section="elevation"] {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* ========== 幻灯片基础 ========== */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.slide-content {
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.slide-content.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* ========== 排版 ========== */
+h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.body-text {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.body-text.highlight {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.big-emoji {
+  font-size: clamp(5rem, 12vw, 10rem);
+  line-height: 1;
+}
+
+.interaction-hint {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  margin-top: 1rem;
+}
+
+.tool-label {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+/* ========== 图片展示 ========== */
+.hero-image {
+  max-width: 70vw;
+  max-height: 55vh;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  object-fit: contain;
+}
+
+.image-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.grid-image {
+  width: clamp(150px, 25vw, 280px);
+  height: clamp(150px, 25vw, 280px);
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+}
+
+.image-showcase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========== 视频展示 ========== */
+.video-showcase {
+  width: 85%;
+  max-width: 900px;
+}
+
+.video-showcase video {
+  width: 100%;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== 对话气泡 ========== */
+.chat-bubble-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 80%;
+  max-width: 700px;
+}
+
+.chat-bubble {
+  padding: 1.2rem 2rem;
+  border-radius: 1.5rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 600;
+  max-width: 80%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.user-bubble {
+  align-self: flex-end;
+  background: rgba(255, 255, 255, 0.3);
+  border-bottom-right-radius: 0.3rem;
+}
+
+.ai-bubble {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.5);
+  border-bottom-left-radius: 0.3rem;
+}
+
+/* ========== 对比布局 ========== */
+.compare-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.compare-item {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  min-width: 200px;
+}
+
+.compare-visual {
+  font-size: clamp(4rem, 10vw, 7rem);
+  margin-bottom: 0.5rem;
+}
+
+.compare-label {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+}
+
+.compare-desc {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  opacity: 0.8;
+  margin-top: 0.3rem;
+}
+
+.compare-vs {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* ========== 进度条 ========== */
+#progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 100;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* ========== 演讲者备注 ========== */
+#speaker-notes {
+  position: fixed;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 80%;
+  padding: 0.8rem 1.5rem;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 0.8rem;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  text-align: center;
+  line-height: 1.5;
+}
+
+#speaker-notes:hover,
+#speaker-notes.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ========== 导航按钮 ========== */
+#nav-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  z-index: 150;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+body:hover #nav-buttons {
+  opacity: 0.3;
+}
+
+#nav-buttons:hover {
+  opacity: 1 !important;
+}
+
+#nav-buttons button {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: background 0.2s;
+}
+
+#nav-buttons button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ========== 全屏提示 ========== */
+#fullscreen-hint {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: opacity 0.5s ease;
+}
+
+#fullscreen-hint.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#fullscreen-hint p {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+}
+
+#fullscreen-hint .small {
+  font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+/* ========== 动画 ========== */
+
+/* 从左滑入 */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide.active .slide-in-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 弹入 */
+.pop-in {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.slide.active .pop-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 延迟 */
+.delay-1 { transition-delay: 0.2s !important; }
+.delay-2 { transition-delay: 0.4s !important; }
+
+/* 标题弹跳 */
+.title-bounce {
+  animation: none;
+}
+
+.slide.active .title-bounce {
+  animation: bounce-in 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes bounce-in {
+  0% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.1); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* 标题抖动（转折页用） */
+.title-shake {
+  animation: none;
+}
+
+.slide.active .title-shake {
+  animation: shake 0.6s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+  20%, 40%, 60%, 80% { transform: translateX(8px); }
+}
+
+/* 挥手动画 */
+.wave-animation {
+  animation: none;
+}
+
+.slide.active .wave-animation {
+  animation: wave 1.5s ease-in-out infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ========== 装饰层：浮动气泡/星星 ========== */
+.slide::before,
+.slide::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 大光晕（右上） */
+.slide::before {
+  width: 35vw;
+  height: 35vw;
+  right: -8vw;
+  top: -8vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+/* 小光晕（左下） */
+.slide::after {
+  width: 22vw;
+  height: 22vw;
+  left: -6vw;
+  bottom: -6vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
+  animation: float-slow 9s ease-in-out infinite reverse;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -15px); }
+}
+
+.slide-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* 浮动装饰容器（随机分布的小气泡，全屏固定在 slide 之上） */
+.bubbles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  animation: bubble-float linear infinite;
+  opacity: 0;
+}
+
+@keyframes bubble-float {
+  0% { transform: translateY(110vh) scale(0.5); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* 星星装饰（用于标题周围） */
+.star {
+  position: absolute;
+  color: #fff700;
+  filter: drop-shadow(0 0 8px rgba(255, 247, 0, 0.8));
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.3) rotate(180deg); opacity: 0.6; }
+}
+
+/* ========== SVG 插画容器 ========== */
+.illustration {
+  width: clamp(200px, 35vw, 400px);
+  height: clamp(200px, 35vw, 400px);
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.25));
+}
+
+.illustration-large {
+  width: clamp(280px, 45vw, 520px);
+  height: clamp(280px, 45vw, 520px);
+}
+
+/* 让 emoji 类的图标有更多层次 */
+.big-emoji {
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+  animation: icon-bob 3s ease-in-out infinite;
+}
+
+@keyframes icon-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* 对比卡片加强 */
+.compare-item {
+  transition: transform 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.slide.active .compare-item:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* 对话气泡打字机效果（AI答） */
+.ai-bubble {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide.active .ai-bubble::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: 50%;
+  transform: translateY(50%);
+  width: 4px;
+  height: 1.2em;
+  background: #333;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* 响应式 */
+/* ========== 响应式 ========== */
+@media (max-width: 768px) {
+  .compare-container {
+    flex-direction: column;
+  }
+  
+  .compare-vs {
+    font-size: 2rem;
+  }
+  
+  .image-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .chat-bubble {
+    max-width: 90%;
+  }
+}

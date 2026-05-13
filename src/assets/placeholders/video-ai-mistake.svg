@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="mistakeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6e7f"/>
+      <stop offset="100%" stop-color="#bfe9ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#mistakeBg)"/>
+  <!-- 一辆巨型火车站汽车（车身上有火车站的屋顶） -->
+  <g transform="translate(150, 180)">
+    <!-- 车身 -->
+    <rect x="0" y="80" width="500" height="100" rx="20" fill="#ef5350" stroke="#b71c1c" stroke-width="4"/>
+    <!-- 挡风玻璃 -->
+    <path d="M 40 80 L 80 30 L 200 30 L 240 80 Z" fill="#81d4fa" stroke="#01579b" stroke-width="3"/>
+    <!-- 但是！车顶上长着火车站的屋顶和钟楼（荒谬的误会） -->
+    <path d="M 260 80 L 260 40 L 480 40 L 480 80 Z" fill="#8d6e63" stroke="#3e2723" stroke-width="3"/>
+    <polygon points="260,40 370,0 480,40" fill="#d84315" stroke="#3e2723" stroke-width="3"/>
+    <!-- 钟楼 -->
+    <rect x="340" y="-30" width="60" height="40" fill="#6d4c41" stroke="#3e2723" stroke-width="2"/>
+    <circle cx="370" cy="-10" r="15" fill="#fff59d" stroke="#5d4037" stroke-width="2"/>
+    <line x1="370" y1="-10" x2="370" y2="-20" stroke="#000" stroke-width="2"/>
+    <line x1="370" y1="-10" x2="378" y2="-5" stroke="#000" stroke-width="2"/>
+    <!-- 车窗 -->
+    <rect x="60" y="90" width="60" height="50" rx="5" fill="#b3e5fc"/>
+    <rect x="140" y="90" width="60" height="50" rx="5" fill="#b3e5fc"/>
+    <!-- 车轮 -->
+    <circle cx="80" cy="185" r="28" fill="#333"/>
+    <circle cx="80" cy="185" r="12" fill="#888"/>
+    <circle cx="420" cy="185" r="28" fill="#333"/>
+    <circle cx="420" cy="185" r="12" fill="#888"/>
+  </g>
+  <!-- 速度线 -->
+  <g stroke="#fff" stroke-width="5" stroke-linecap="round" opacity="0.8">
+    <line x1="60" y1="300" x2="140" y2="300"/>
+    <line x1="40" y1="330" x2="120" y2="330"/>
+    <line x1="70" y1="360" x2="150" y2="360"/>
+  </g>
+  <!-- 哈哈表情泡 -->
+  <g transform="translate(600, 90)">
+    <circle r="55" fill="#fff" stroke="#ff5722" stroke-width="4"/>
+    <text y="18" font-size="50" text-anchor="middle">😂</text>
+  </g>
+  <!-- 播放按钮 -->
+  <circle cx="400" cy="225" r="55" fill="rgba(255,255,255,0.9)"/>
+  <polygon points="385,200 385,250 430,225" fill="#e91e63"/>
+  <!-- 标题 -->
+  <text x="400" y="50" text-anchor="middle" font-size="32" fill="#fff" font-weight="900" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.3))">AI 听错啦！</text>
+  <text x="400" y="80" text-anchor="middle" font-size="18" fill="#fff" opacity="0.95">整个火车站 变成了 一辆车</text>
+</svg>
